@@ -23,7 +23,7 @@
     <ProjectGuid>{7573A4E9-7ACE-41E1-97D9-4DFC9909F975}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>TigerEngine</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0.15063.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0.14393.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -141,7 +141,43 @@
   <ItemGroup>
     <ClInclude Include="Graphics\GraphicsInterface.h" />
     <ClInclude Include="Graphics\Mesh.hpp" />
+    <ClInclude Include="Graphics\RenderApi\Adapter.hpp" />
+    <ClInclude Include="Graphics\RenderApi\CommandBuffer.hpp" />
+    <ClInclude Include="Graphics\RenderApi\CommandPool.hpp" />
+    <ClInclude Include="Graphics\RenderApi\ConstantBuffer.hpp" />
     <ClInclude Include="Graphics\RenderApi\Device.hpp" />
+    <ClInclude Include="Graphics\RenderApi\Fence.hpp" />
+    <ClInclude Include="Graphics\RenderApi\FrameBuffer.hpp" />
+    <ClInclude Include="Graphics\RenderApi\Image.hpp" />
+    <ClInclude Include="Graphics\RenderApi\ImageView.hpp" />
+    <ClInclude Include="Graphics\RenderApi\IndexBuffer.hpp" />
+    <ClInclude Include="Graphics\RenderApi\Instance.hpp" />
+    <ClInclude Include="Graphics\RenderApi\Pipeline.hpp" />
+    <ClInclude Include="Graphics\RenderApi\Queue.hpp" />
+    <ClInclude Include="Graphics\RenderApi\RenderPass.hpp" />
+    <ClInclude Include="Graphics\RenderApi\Result.hpp" />
+    <ClInclude Include="Graphics\RenderApi\Swapchain.hpp" />
+    <ClInclude Include="Graphics\RenderApi\VertexBuffer.hpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Graphics\RenderApi\Adapter.cpp" />
+    <ClCompile Include="Graphics\RenderApi\CommandBuffer.cpp" />
+    <ClCompile Include="Graphics\RenderApi\CommandPool.cpp" />
+    <ClCompile Include="Graphics\RenderApi\ConstantBuffer.cpp" />
+    <ClCompile Include="Graphics\RenderApi\Device.cpp" />
+    <ClCompile Include="Graphics\RenderApi\Fence.cpp" />
+    <ClCompile Include="Graphics\RenderApi\FrameBuffer.cpp" />
+    <ClCompile Include="Graphics\RenderApi\Image.cpp" />
+    <ClCompile Include="Graphics\RenderApi\ImageView.cpp" />
+    <ClCompile Include="Graphics\RenderApi\IndexBuffer.cpp" />
+    <ClCompile Include="Graphics\RenderApi\Instance.cpp" />
+    <ClCompile Include="Graphics\RenderApi\Pipeline.cpp" />
+    <ClCompile Include="Graphics\RenderApi\Queue.cpp" />
+    <ClCompile Include="Graphics\RenderApi\RenderPass.cpp" />
+    <ClCompile Include="Graphics\RenderApi\Result.cpp" />
+    <ClCompile Include="Graphics\RenderApi\Swapchain.cpp" />
+    <ClCompile Include="Graphics\RenderApi\VertexBuffer.cpp" />
+    <ClCompile Include="Main.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
