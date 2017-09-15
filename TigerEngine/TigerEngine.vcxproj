@@ -139,7 +139,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="Graphics\Device.hpp" />
+    <ClInclude Include="Graphics\GraphicsInterface.h" />
+    <ClInclude Include="Graphics\Mesh.hpp" />
+    <ClInclude Include="Graphics\RenderApi\Device.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -15,7 +15,13 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Graphics\Device.hpp">
+    <ClInclude Include="Graphics\RenderApi\Device.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Graphics\Mesh.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Graphics\GraphicsInterface.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
