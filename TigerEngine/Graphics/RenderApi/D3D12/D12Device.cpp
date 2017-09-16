@@ -1,3 +1,4 @@
+#include "../Adapter.hpp"
 #include "D12Device.hpp"
 
 namespace te
@@ -6,6 +7,12 @@ namespace te
 	{
 		namespace d12
 		{	
+			D12Device::D12Device(Adapter* UsedAdapter) :
+				Device(UsedAdapter)
+			{
+
+			}
+
 			Result D12Device::Initialize()
 			{
 				return Result();

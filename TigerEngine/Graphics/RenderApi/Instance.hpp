@@ -11,12 +11,13 @@ namespace te
 	namespace gr
 	{
 		class Adapter;
+		class Device;
 
 		class Instance
 		{
 		public:
 			virtual Result EnumerateAdapters(std::vector<std::unique_ptr<Adapter>>& Adapters) = 0;
-			virtual Result CreateDevice(Adapter* UsedAdapter) = 0;		
+			virtual Result CreateDevice(Adapter* UsedAdapter, Device** CreatedDevice) = 0;		
 
 			Instance(const Instance& Other) = delete; // copy constructor
 			Instance(Instance&& Other) = delete; // move constructor

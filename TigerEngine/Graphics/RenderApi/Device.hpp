@@ -1,14 +1,23 @@
 #pragma once
 
+#include <memory>
+
 #include "Result.hpp"
 
 namespace te
 {
 	namespace gr
 	{
+		class Adapter;
+
 		class Device
 		{
+		private:
+			std::unique_ptr<Adapter> m_Adapter;
+
 		public:
+			virtual ~Device() = 0 {};
+
 			Device(const Device& Other) = delete; // copy constructor
 			Device(Device&& Other) = delete; // move constructor
 			Device& operator=(const Device& Other) = delete; // copy assignment
@@ -32,7 +41,8 @@ namespace te
 			virtual Result CreateImageView() = 0;		
 
 		protected:
-			Device() {};
+			Device(Adapter* UsedAdapter);
+			
 
 		};
 	}

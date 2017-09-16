@@ -25,7 +25,7 @@ namespace te
 				~D12Instance() override;
 
 				Result EnumerateAdapters(std::vector<std::unique_ptr<Adapter>>& Adapters) override;
-				Result CreateDevice(Adapter* UsedAdapter) override;
+				Result CreateDevice(Adapter* UsedAdapter, Device** CreatedDevice) override;
 
 
 			private:

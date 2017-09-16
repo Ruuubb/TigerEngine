@@ -13,6 +13,8 @@ namespace te
 			private:
 
 			public:
+				D12Device(Adapter* UsedAdapter);
+
 				Result Initialize() override;
 				Result Shutdown() override;
 

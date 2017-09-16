@@ -168,6 +168,7 @@
     <ClCompile Include="Graphics\RenderApi\D3D12\D12Adapter.cpp" />
     <ClCompile Include="Graphics\RenderApi\D3D12\D12Device.cpp" />
     <ClCompile Include="Graphics\RenderApi\D3D12\D12Instance.cpp" />
+    <ClCompile Include="Graphics\RenderApi\Device.cpp" />
     <ClCompile Include="Main.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

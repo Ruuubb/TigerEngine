@@ -3,6 +3,7 @@
 #include <codecvt>
 
 #include "D12Instance.hpp"
+#include "D12Device.hpp"
 
 #pragma comment (lib, "d3d12.lib")
 #pragma comment (lib, "DXGI.lib")
@@ -58,9 +59,12 @@ namespace te
 						
 
 
-			Result D12Instance::CreateDevice(Adapter* UsedAdapter)
+			Result D12Instance::CreateDevice(Adapter* UsedAdapter, Device** CreatedDevice)
 			{
 				D12Adapter* UsedD12Adapter = static_cast<D12Adapter*>(UsedAdapter);
+
+				*CreatedDevice = new D12Device(UsedD12Adapter);
+
 
 				return Result();
 			}

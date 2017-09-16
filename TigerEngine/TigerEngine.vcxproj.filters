@@ -101,5 +101,8 @@
     <ClCompile Include="Graphics\RenderApi\D3D12\D12Instance.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Graphics\RenderApi\Device.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
