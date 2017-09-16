@@ -145,6 +145,9 @@
     <ClInclude Include="Graphics\RenderApi\CommandBuffer.hpp" />
     <ClInclude Include="Graphics\RenderApi\CommandPool.hpp" />
     <ClInclude Include="Graphics\RenderApi\ConstantBuffer.hpp" />
+    <ClInclude Include="Graphics\RenderApi\D3D12\D12Adapter.hpp" />
+    <ClInclude Include="Graphics\RenderApi\D3D12\D12Device.hpp" />
+    <ClInclude Include="Graphics\RenderApi\D3D12\D12Instance.hpp" />
     <ClInclude Include="Graphics\RenderApi\Device.hpp" />
     <ClInclude Include="Graphics\RenderApi\Fence.hpp" />
     <ClInclude Include="Graphics\RenderApi\FrameBuffer.hpp" />
@@ -158,25 +161,13 @@
     <ClInclude Include="Graphics\RenderApi\Result.hpp" />
     <ClInclude Include="Graphics\RenderApi\Swapchain.hpp" />
     <ClInclude Include="Graphics\RenderApi\VertexBuffer.hpp" />
+    <ClInclude Include="Graphics\RenderApi\Vulkan\Instance.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Graphics\RenderApi\Adapter.cpp" />
-    <ClCompile Include="Graphics\RenderApi\CommandBuffer.cpp" />
-    <ClCompile Include="Graphics\RenderApi\CommandPool.cpp" />
-    <ClCompile Include="Graphics\RenderApi\ConstantBuffer.cpp" />
-    <ClCompile Include="Graphics\RenderApi\Device.cpp" />
-    <ClCompile Include="Graphics\RenderApi\Fence.cpp" />
-    <ClCompile Include="Graphics\RenderApi\FrameBuffer.cpp" />
-    <ClCompile Include="Graphics\RenderApi\Image.cpp" />
-    <ClCompile Include="Graphics\RenderApi\ImageView.cpp" />
-    <ClCompile Include="Graphics\RenderApi\IndexBuffer.cpp" />
-    <ClCompile Include="Graphics\RenderApi\Instance.cpp" />
-    <ClCompile Include="Graphics\RenderApi\Pipeline.cpp" />
-    <ClCompile Include="Graphics\RenderApi\Queue.cpp" />
-    <ClCompile Include="Graphics\RenderApi\RenderPass.cpp" />
-    <ClCompile Include="Graphics\RenderApi\Result.cpp" />
-    <ClCompile Include="Graphics\RenderApi\Swapchain.cpp" />
-    <ClCompile Include="Graphics\RenderApi\VertexBuffer.cpp" />
+    <ClCompile Include="Graphics\RenderApi\D3D12\D12Adapter.cpp" />
+    <ClCompile Include="Graphics\RenderApi\D3D12\D12Device.cpp" />
+    <ClCompile Include="Graphics\RenderApi\D3D12\D12Instance.cpp" />
     <ClCompile Include="Main.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
