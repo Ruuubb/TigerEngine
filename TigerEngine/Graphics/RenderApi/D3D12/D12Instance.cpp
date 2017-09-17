@@ -18,14 +18,11 @@ namespace te
 			{
 				//////////////////////////////////////////////////////////////////////////
 				//TODO debug shit
-				uint32_t Flags = DXGI_CREATE_FACTORY_DEBUG;
 				if (SUCCEEDED(D3D12GetDebugInterface(IID_PPV_ARGS(&m_DebugController))))
 				{
 					m_DebugController->EnableDebugLayer();
 				}
-				//////////////////////////////////////////////////////////////////////////
-
-				HRESULT Res = CreateDXGIFactory2(Flags, IID_PPV_ARGS(&m_DxFactory));
+				//////////////////////////////////////////////////////////////////////////		
 			}
 
 			D12Instance::~D12Instance()
@@ -35,6 +32,9 @@ namespace te
 
 			Result D12Instance::EnumerateAdapters(std::vector<std::unique_ptr<Adapter>>& Adapters)
 			{
+				//TODO change first flag depending on debug or not.
+				HRESULT Res = CreateDXGIFactory2(DXGI_CREATE_FACTORY_DEBUG, IID_PPV_ARGS(&m_DxFactory));
+
 				IDXGIAdapter1* Adapter1;
 
 				uint32_t Index = 0;
@@ -46,8 +46,33 @@ namespace te
 						DXGI_ADAPTER_DESC2 Desc2;
 						if (SUCCEEDED(Adapter2->GetDesc2(&Desc2)))
 						{
+							const D3D_FEATURE_LEVEL D12Levels[] =
+							{
+								D3D_FEATURE_LEVEL_12_1,
+								D3D_FEATURE_LEVEL_12_0,
+								D3D_FEATURE_LEVEL_11_1,
+								D3D_FEATURE_LEVEL_11_0
+							};
+
+							const int LevelCount = sizeof(D12Levels) / sizeof(D3D_FEATURE_LEVEL);
+							D3D_FEATURE_LEVEL HighestLevel = D3D_FEATURE_LEVEL(0);
+							bool SupportApi = true;
+
+							for (int i = 0; i < LevelCount; ++i)
+							{
+								if (SUCCEEDED(D3D12CreateDevice(Adapter2, D12Levels[i], _uuidof(ID3D12Device), nullptr)))
+								{
+									HighestLevel = D12Levels[i];
+									break;
+								}
+							}
+
+							if (HighestLevel == D3D_FEATURE_LEVEL(0))
+								SupportApi = false;
+							
+
 							Adapters.emplace_back(new D12Adapter(std::wstring_convert<std::codecvt_utf8<wchar_t>>().to_bytes(Desc2.Description), Desc2.DedicatedVideoMemory, Desc2.DedicatedSystemMemory,
-								Desc2.SharedSystemMemory, Desc2.VendorId, Desc2.DeviceId, (Desc2.Flags & DXGI_ADAPTER_FLAG_SOFTWARE) == 0, Adapter2));
+								Desc2.SharedSystemMemory, Desc2.VendorId, Desc2.DeviceId, (Desc2.Flags & DXGI_ADAPTER_FLAG_SOFTWARE) == 0, Adapter2, HighestLevel, SupportApi));
 						}
 					}
 
@@ -55,18 +80,12 @@ namespace te
 				}
 
 				return Result();
-			}
-						
+			}		
 
-
-			Result D12Instance::CreateDevice(Adapter* UsedAdapter, Device** CreatedDevice)
+			Result D12Instance::CreateDevice(std::unique_ptr<Adapter> UsedAdapter, Device** CreatedDevice)
 			{
-				D12Adapter* UsedD12Adapter = static_cast<D12Adapter*>(UsedAdapter);
-
-				*CreatedDevice = new D12Device(UsedD12Adapter);
-
-
-				return Result();
+				*CreatedDevice = new D12Device(std::move(UsedAdapter));
+				return (*CreatedDevice)->Initialize();
 			}
 		}
 	}

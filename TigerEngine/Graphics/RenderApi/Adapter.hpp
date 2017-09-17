@@ -16,6 +16,7 @@ namespace te
 			uint32_t m_VendorID;
 			uint32_t m_DeviceID;
 			bool m_IsRemote;
+			bool m_IsSupportingApi;
 
 		public:			
 			virtual ~Adapter() = 0 {};
@@ -29,7 +30,7 @@ namespace te
 			bool GetIsRemote();
 
 		protected:
-			Adapter(std::string Desc, size_t VideoMemory, size_t SystemMemory, size_t SharedMemory, uint32_t VendorID, uint32_t DeviceID, bool Remote);
+			Adapter(std::string Desc, size_t VideoMemory, size_t SystemMemory, size_t SharedMemory, uint32_t VendorID, uint32_t DeviceID, bool Remote, bool SupportsApi);
 
 		};
 	}

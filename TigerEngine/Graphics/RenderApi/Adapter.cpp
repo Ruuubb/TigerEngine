@@ -4,14 +4,15 @@ namespace te
 {
 	namespace gr
 	{
-		Adapter::Adapter(std::string Desc, size_t VideoMemory, size_t SystemMemory, size_t SharedMemory, uint32_t VendorID, uint32_t DeviceID, bool Remote) :
+		Adapter::Adapter(std::string Desc, size_t VideoMemory, size_t SystemMemory, size_t SharedMemory, uint32_t VendorID, uint32_t DeviceID, bool Remote, bool SupportsApi) :
 			m_Description(Desc),
 			m_VideoMemory(VideoMemory),
 			m_SystemMemory(SystemMemory),
 			m_SharedMemory(SharedMemory),
 			m_VendorID(m_VendorID),
 			m_DeviceID(DeviceID),
-			m_IsRemote(Remote)
+			m_IsRemote(Remote),
+			m_IsSupportingApi(SupportsApi)
 		{
 
 		}

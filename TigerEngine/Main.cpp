@@ -10,7 +10,7 @@ int main()
 
 	te::gr::d12::D12Instance I;
 	I.EnumerateAdapters(Adapters);
-	I.CreateDevice(Adapters[0].get(), &Dev);
+	I.CreateDevice(std::move(Adapters[0]), &Dev);
 
 	std::unique_ptr<te::gr::Device> RenderDevice;
 	RenderDevice = std::unique_ptr<te::gr::Device>(Dev);

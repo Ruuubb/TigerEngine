@@ -17,7 +17,7 @@ namespace te
 		{
 		public:
 			virtual Result EnumerateAdapters(std::vector<std::unique_ptr<Adapter>>& Adapters) = 0;
-			virtual Result CreateDevice(Adapter* UsedAdapter, Device** CreatedDevice) = 0;		
+			virtual Result CreateDevice(std::unique_ptr<Adapter> UsedAdapter, Device** CreatedDevice) = 0;
 
 			Instance(const Instance& Other) = delete; // copy constructor
 			Instance(Instance&& Other) = delete; // move constructor

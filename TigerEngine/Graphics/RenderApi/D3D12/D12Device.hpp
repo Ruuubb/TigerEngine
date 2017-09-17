@@ -2,6 +2,9 @@
 
 #include "../Device.hpp"
 
+#include <d3d12.h>
+#include <atlbase.h>
+
 namespace te
 {
 	namespace gr
@@ -11,9 +14,10 @@ namespace te
 			class D12Device : public te::gr::Device
 			{
 			private:
+				CComPtr<ID3D12Device> m_Device;
 
 			public:
-				D12Device(Adapter* UsedAdapter);
+				D12Device(std::unique_ptr<Adapter> UsedAdapter);
 
 				Result Initialize() override;
 				Result Shutdown() override;

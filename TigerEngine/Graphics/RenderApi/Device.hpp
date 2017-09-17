@@ -12,7 +12,7 @@ namespace te
 
 		class Device
 		{
-		private:
+		protected:
 			std::unique_ptr<Adapter> m_Adapter;
 
 		public:
@@ -41,7 +41,7 @@ namespace te
 			virtual Result CreateImageView() = 0;		
 
 		protected:
-			Device(Adapter* UsedAdapter);
+			Device(std::unique_ptr<Adapter> UsedAdapter);
 			
 
 		};

@@ -5,9 +5,10 @@ namespace te
 {
 	namespace gr
 	{
-		Device::Device(Adapter* UsedAdapter)
+		Device::Device(std::unique_ptr<Adapter> UsedAdapter) :
+			m_Adapter(std::move(UsedAdapter))
 		{
-
+			
 		}
 	}
 }
