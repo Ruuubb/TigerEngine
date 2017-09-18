@@ -1,5 +1,9 @@
 #pragma once
 
+#include <dxgi1_4.h>
+#include <d3d12.h>
+#include <atlbase.h>
+
 #include "../Swapchain.hpp"
 
 namespace te
@@ -13,6 +17,7 @@ namespace te
 			class D12Swapchain : public Swapchain
 			{
 			private:
+				CComPtr<IDXGISwapChain3> m_SwapChain;
 
 			public:
 				D12Swapchain(D12Device* Dev, SwapchainDesc& Desc);
@@ -22,9 +27,7 @@ namespace te
 
 				void Present() override;
 				void Resize() override;
-				std::int32_t GetCurrentIndex() override;
-
-			
+				std::int32_t GetCurrentIndex() override;	
 			};
 		}
 	}
