@@ -1,6 +1,11 @@
 #include "../Adapter.hpp"
+
 #include "D12Device.hpp"
 #include "D12Adapter.hpp"
+#include "D12Queue.hpp"
+#include "D12Swapchain.hpp"
+
+#include "../InitStructs/QueueDesc.hpp"
 
 namespace te
 {
@@ -12,6 +17,11 @@ namespace te
 				Device(std::move(UsedAdapter))
 			{
 
+			}
+
+			D12Device::~D12Device()
+			{
+				Shutdown();
 			}
 
 			Result D12Device::Initialize()
@@ -28,74 +38,88 @@ namespace te
 				return Result();
 			}
 
+
+
 			Result D12Device::Shutdown()
 			{
 				return Result();
 			}
 
-			Result D12Device::CreateVertexBuffer()
+			Result D12Device::CreateVertexBuffer(VertexBuffer** CreatedVertexBuffer)
 			{
 				return Result();
 			}
 
-			Result D12Device::CreateIndexBuffer()
+			Result D12Device::CreateIndexBuffer(IndexBuffer** CreatedIndexBuffer)
 			{
 				return Result();
 			}
 
-			Result D12Device::CreateConstantBuffer()
+			Result D12Device::CreateConstantBuffer(ConstantBuffer** CreatedConstantBuffer)
 			{
 				return Result();
 			}
 
-			Result D12Device::CreateCommandPool()
+			Result D12Device::CreateCommandPool(CommandPool** CreatedCommandPool)
 			{
 				return Result();
 			}
 
-			Result D12Device::CreateCommandBuffer()
+			Result D12Device::CreateCommandBuffer(CommandBuffer** CreatedCommandBuffer)
 			{
 				return Result();
 			}
 
-			Result D12Device::CreateQueue()
+			Result D12Device::CreateQueue(QueueDesc& Desc, Queue** CreatedQueue)
+			{
+				*CreatedQueue = new D12Queue();
+				static_cast<D12Queue*>(*CreatedQueue)->Initialize(this, Desc);
+
+				return Result();
+			}
+
+			Result D12Device::CreateFence(Fence** CreatedFence)
 			{
 				return Result();
 			}
 
-			Result D12Device::CreateFence()
+			Result D12Device::CreateSwapchain(SwapchainDesc& Desc, Swapchain** CreatedSwapchain)
+			{
+				*CreatedSwapchain = new D12Swapchain(this, Desc);
+				static_cast<D12Swapchain*>(*CreatedSwapchain)->Initialize();
+
+				return Result();
+			}
+
+			Result D12Device::CreateRenderPass(RenderPass** RenderPass)
 			{
 				return Result();
 			}
 
-			Result D12Device::CreateSwapchain()
+			Result D12Device::CreatePipeline(Pipeline** CreatedPipeline)
 			{
 				return Result();
 			}
 
-			Result D12Device::CreateRenderPass()
+			Result D12Device::CreateFrameBuffer(FrameBuffer** CreatedFrameBuffer)
 			{
 				return Result();
 			}
 
-			Result D12Device::CreatePipeline()
+			Result D12Device::CreateImage(Image** CreatedImage)
+			{
+				return Result();
+
+			}
+
+			Result D12Device::CreateImageView(ImageView** CreatedImageView)
 			{
 				return Result();
 			}
 
-			Result D12Device::CreateFrameBuffer()
+			ID3D12Device* D12Device::GetDevice() const
 			{
-				return Result();
-			}
-
-			Result D12Device::CreateImage()
-			{
-				return Result();
-			}
-
-			Result D12Device::CreateImageView()
-			{
-				return Result();
+				return m_Device;
 			}
 
 		}

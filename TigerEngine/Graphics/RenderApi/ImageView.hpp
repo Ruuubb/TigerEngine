@@ -10,6 +10,7 @@ namespace te
 
 		public:
 
+			virtual ~ImageView() = 0 {};
 		protected:
 
 		private:

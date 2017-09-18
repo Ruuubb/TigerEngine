@@ -10,6 +10,8 @@ namespace te
 
 		public:
 
+			virtual ~Image() = 0 {};
+
 		protected:
 
 		private:

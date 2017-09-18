@@ -3,12 +3,29 @@
 #include <memory>
 
 #include "Result.hpp"
+//#include "Adapter.hpp"
 
 namespace te
 {
 	namespace gr
 	{
 		class Adapter;
+		class CommandBuffer;
+		class CommandPool;
+		class ConstantBuffer;
+		class Fence;
+		class FrameBuffer;
+		class Image;
+		class ImageView;
+		class IndexBuffer;
+		class Pipeline;
+		class Queue;
+		class RenderPass;
+		class Swapchain;
+		class VertexBuffer;
+
+		struct QueueDesc;
+		struct SwapchainDesc;
 
 		class Device
 		{
@@ -26,19 +43,19 @@ namespace te
 			virtual Result Initialize() = 0;
 			virtual Result Shutdown() = 0;
 
-			virtual Result CreateVertexBuffer() = 0;
-			virtual Result CreateIndexBuffer() = 0;
-			virtual Result CreateConstantBuffer() = 0;
-			virtual Result CreateCommandPool() = 0;
-			virtual Result CreateCommandBuffer() = 0;
-			virtual Result CreateQueue() = 0;
-			virtual Result CreateFence() = 0;
-			virtual Result CreateSwapchain() = 0;
-			virtual Result CreateRenderPass() = 0;
-			virtual Result CreatePipeline() = 0;
-			virtual Result CreateFrameBuffer() = 0;
-			virtual Result CreateImage() = 0;
-			virtual Result CreateImageView() = 0;		
+			virtual Result CreateVertexBuffer(VertexBuffer** CreatedVertexBuffer) = 0;
+			virtual Result CreateIndexBuffer(IndexBuffer** CreatedIndexBuffer) = 0;
+			virtual Result CreateConstantBuffer(ConstantBuffer** CreatedConstantBuffer) = 0;
+			virtual Result CreateCommandPool(CommandPool** CreatedCommandPool) = 0;
+			virtual Result CreateCommandBuffer(CommandBuffer** CreatedCommandBuffer) = 0;
+			virtual Result CreateQueue(QueueDesc& Desc, Queue** CreatedQueue) = 0;
+			virtual Result CreateFence(Fence** CreatedFence) = 0;
+			virtual Result CreateSwapchain(SwapchainDesc& Desc, Swapchain** CreatedSwapchain) = 0;
+			virtual Result CreateRenderPass(RenderPass** RenderPass) = 0;
+			virtual Result CreatePipeline(Pipeline** CreatedPipeline) = 0;
+			virtual Result CreateFrameBuffer(FrameBuffer** CreatedFrameBuffer) = 0;
+			virtual Result CreateImage(Image** CreatedImage) = 0;
+			virtual Result CreateImageView(ImageView** CreatedImageView) = 0;
 
 		protected:
 			Device(std::unique_ptr<Adapter> UsedAdapter);

@@ -148,12 +148,16 @@
     <ClInclude Include="Graphics\RenderApi\D3D12\D12Adapter.hpp" />
     <ClInclude Include="Graphics\RenderApi\D3D12\D12Device.hpp" />
     <ClInclude Include="Graphics\RenderApi\D3D12\D12Instance.hpp" />
+    <ClInclude Include="Graphics\RenderApi\D3D12\D12Queue.hpp" />
+    <ClInclude Include="Graphics\RenderApi\D3D12\D12Swapchain.hpp" />
     <ClInclude Include="Graphics\RenderApi\Device.hpp" />
     <ClInclude Include="Graphics\RenderApi\Fence.hpp" />
     <ClInclude Include="Graphics\RenderApi\FrameBuffer.hpp" />
     <ClInclude Include="Graphics\RenderApi\Image.hpp" />
     <ClInclude Include="Graphics\RenderApi\ImageView.hpp" />
     <ClInclude Include="Graphics\RenderApi\IndexBuffer.hpp" />
+    <ClInclude Include="Graphics\RenderApi\InitStructs\QueueDesc.hpp" />
+    <ClInclude Include="Graphics\RenderApi\InitStructs\SwapchainDesc.hpp" />
     <ClInclude Include="Graphics\RenderApi\Instance.hpp" />
     <ClInclude Include="Graphics\RenderApi\Pipeline.hpp" />
     <ClInclude Include="Graphics\RenderApi\Queue.hpp" />
@@ -168,7 +172,10 @@
     <ClCompile Include="Graphics\RenderApi\D3D12\D12Adapter.cpp" />
     <ClCompile Include="Graphics\RenderApi\D3D12\D12Device.cpp" />
     <ClCompile Include="Graphics\RenderApi\D3D12\D12Instance.cpp" />
+    <ClCompile Include="Graphics\RenderApi\D3D12\D12Queue.cpp" />
+    <ClCompile Include="Graphics\RenderApi\D3D12\D12Swapchain.cpp" />
     <ClCompile Include="Graphics\RenderApi\Device.cpp" />
+    <ClCompile Include="Graphics\RenderApi\Swapchain.cpp" />
     <ClCompile Include="Main.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
